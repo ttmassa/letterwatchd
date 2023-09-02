@@ -9,16 +9,54 @@ body {
     color: rgb(255, 255, 255)
 }
 
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 header {
     background-color: #14181c;
     height: 72px;
     display: flex;
-    align-items: center;
     text-align: center;
+    align-items: center;
 }
 
 .header--title {
     font-weight: 600;
     font-size: 46px;
     letter-spacing: 0.08rem;
+}
+
+.button {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button--main {
+    max-width: 275px;
+    height: 65px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    background-color: #00e054;
+    color: #fffdfc;
+    font-size: 26px;
+    border: #14181c;
+    border-radius: 10px;
+}
+
+.button--hovered {
+    max-width: 275px;
+    height: 65px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    background-color: #038c38;
+    color: #fffdfc;
+    font-size: 26px;
+    font-weight: 600;
+    border: #14181c;
+    border-radius: 10px;
 }
