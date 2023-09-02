@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function Button() {
+export default function Button({ onToggleOverlay }) {
     const [buttonClass, setButtonClass] = useState('button--main')
 
     function toToggle() {
@@ -17,7 +17,8 @@ export default function Button() {
             <button 
             className={buttonClass} 
             onMouseEnter={toToggle} 
-            onMouseLeave={toToggle}>
+            onMouseLeave={toToggle}
+            onClick={onToggleOverlay}>
                 Watch me
             </button>
         </div>
