@@ -60,3 +60,17 @@ header {
     border: #14181c;
     border-radius: 10px;
 }
+
+.card--container {
+    display: flex;
+    gap: 50px;
+}
+
+.card {
+    width: 150px;
+}
+
+.card--img {
+    width: 150px;
+    height: 220px;
+}
