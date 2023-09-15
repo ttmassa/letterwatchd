@@ -21,13 +21,6 @@ const data = [
         releaseDate: "1997"
     },
     {
-        id: 4,
-        coverImage: "https://static.wikia.nocookie.net/akira/images/0/0e/Akira-Poster-akira-13827694-1013-1500.jpg/revision/latest?cb=20171014144129&path-prefix=fr",
-        title: `Akira`,
-        director: "Katushiro Otomo",
-        releaseDate: "1988"
-    },
-    {
         id: 5,
         coverImage: "https://m.media-amazon.com/images/M/MV5BMjFmYjQxNTAtNDJkMC00NWM1LThlZjYtOTFmYjJiMGQ1NGFkXkEyXkFqcGdeQXVyMjQ0NzcxNjM@._V1_.jpg",
         title: `Love Life`,
