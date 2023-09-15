@@ -27,7 +27,9 @@ export default function App() {
                 <div className="overlay">
                     <section className={`card--container ${isCardVisible ? 'card-visible' : ''}`}>
                         {randomIndex !== null && (
-                            <Card key={data[randomIndex].id} {...data[randomIndex]} />
+                            <div>
+                                <Card key={data[randomIndex].id} {...data[randomIndex]} />                            </div>
+                            
                         )}
                     </section>
                 </div>
