@@ -111,8 +111,8 @@ header {
 
 .reset--button {
     margin-top: 15px;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 60px;
     font-size: 25px;
     background-color: #00e054;
     border: #14181c;
@@ -121,8 +121,8 @@ header {
 
 .reset--button:hover {
     margin-top: 15px;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 60px;
     font-size: 27px;
     background-color: #038c38;
     border: #14181c;
