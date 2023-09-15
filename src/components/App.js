@@ -20,6 +20,11 @@ export default function App() {
         toggleOverlay();
     }
 
+    const resetState = () => {
+        setCardVisible(false);
+        setRandomIndex(null);
+    }
+
     return (
         <div className='app'>
             <Header />
@@ -28,7 +33,8 @@ export default function App() {
                     <section className={`card--container ${isCardVisible ? 'card-visible' : ''}`}>
                         {randomIndex !== null && (
                             <div>
-                                <Card key={data[randomIndex].id} {...data[randomIndex]} />                            </div>
+                                <Card key={data[randomIndex].id} {...data[randomIndex]}
+                                    resetState={resetState} />                            </div>
                             
                         )}
                     </section>
