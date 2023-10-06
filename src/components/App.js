@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../style.css';import data from '../watchlist/data';
+import '../style.css';
+import data from '../watchlist/data';
 import Header from './Header';
 import Button from './Button';
 import Card from './Card';
