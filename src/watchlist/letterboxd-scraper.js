@@ -7,7 +7,10 @@ async function scrapeLetterboxdWatchlist(username) {
   const watchlistUrl = `https://letterboxd.com/${username}/watchlist/`;
 
   await page.goto(watchlistUrl);
-  await page.waitForSelector('li.poster-container'); // Attendre que la page soit chargée
+  await page.waitForSelector('li.poster-container');
+
+  // Attendre un peu plus longtemps pour que toutes les images se chargent
+  await page.waitForTimeout(5000); // Vous pouvez ajuster le délai si nécessaire
 
   const filmData = [];
 
@@ -16,6 +19,7 @@ async function scrapeLetterboxdWatchlist(username) {
 
     for (const filmContainer of filmContainers) {
       const filmInfo = await filmContainer.evaluate((element) => {
+        const id = 1;
         const title = element.querySelector('img').getAttribute('alt');
         const releaseYearElement = element.querySelector('span.number a');
         const releaseYear = releaseYearElement ? releaseYearElement.textContent.trim() : '';
@@ -24,6 +28,7 @@ async function scrapeLetterboxdWatchlist(username) {
         const imageUrl = element.querySelector('img').getAttribute('src');
 
         return {
+          id,
           title,
           director,
           releaseDate: releaseYear,
@@ -38,9 +43,12 @@ async function scrapeLetterboxdWatchlist(username) {
   // Scrape the first page
   await scrapePage();
 
-  fs.writeFileSync('filmData.json', JSON.stringify(filmData));
+  // Écrivez les données dans data.js
+  const dataFileContent = `const filmData = ${JSON.stringify(filmData, null, 2)};\n\nexport default filmData;\n`;
+  fs.writeFileSync('data.js', dataFileContent);
 
   console.log(`Scraped ${filmData.length} films from the watchlist.`);
+  console.log(filmData);
 
   await browser.close();
 }

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../style.css';
-import data from '../watchlist/data';
 import Header from './Header';
 import Button from './Button';
 import Card from './Card';
+import filmData from '../watchlist/data';
 import { getRandomIndex } from '../functions/utils';
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
     };
 
     const handleClick = () => {
-        const newIndex = getRandomIndex(data.length);
+        const newIndex = getRandomIndex(filmData.length);
         setRandomIndex(newIndex);
         toggleOverlay();
     }
@@ -28,18 +28,19 @@ export default function App() {
     return (
         <div className='app'>
             <Header />
-            <Button onToggleOverlay={handleClick} />            {isCardVisible && (
+            <Button onToggleOverlay={handleClick} />
+            {isCardVisible && (
                 <div className="overlay">
                     <section className={`card--container ${isCardVisible ? 'card-visible' : ''}`}>
                         {randomIndex !== null && (
                             <div>
-                                <Card key={data[randomIndex].id} {...data[randomIndex]}
-                                    resetState={resetState} />                            </div>
-                            
+                                <Card key={filmData[randomIndex].id} {...filmData[randomIndex]}
+                                    resetState={resetState} />
+                            </div>
                         )}
                     </section>
                 </div>
             )}
         </div>
-    )      
+    )
 }
