@@ -1,5 +1,5 @@
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+const puppeteer = require("puppeteer");
+const fs = require("fs");
 
 async function scrapeLetterboxdWatchlist(username) {
   const browser = await puppeteer.launch();
@@ -7,10 +7,9 @@ async function scrapeLetterboxdWatchlist(username) {
   const watchlistUrl = `https://letterboxd.com/${username}/watchlist/`;
 
   await page.goto(watchlistUrl);
-  await page.waitForSelector('li.poster-container');
+  await page.waitForSelector("li.poster-container");
 
-  // Attendre un peu plus longtemps pour que toutes les images se chargent
-  await page.waitForTimeout(5000); // Vous pouvez ajuster le délai si nécessaire
+  await page.waitForTimeout(5000); 
 
   const filmData = [];
 
@@ -20,12 +19,11 @@ async function scrapeLetterboxdWatchlist(username) {
     for (const filmContainer of filmContainers) {
       const filmInfo = await filmContainer.evaluate((element) => {
         const id = 1;
-        const title = element.querySelector('img').getAttribute('alt');
-        const releaseYearElement = element.querySelector('span.number a');
-        const releaseYear = releaseYearElement ? releaseYearElement.textContent.trim() : '';
-        const directorElement = element.querySelector('p small a');
-        const director = directorElement ? directorElement.textContent.trim() : '';
-        const imageUrl = element.querySelector('img').getAttribute('src');
+        const title = element.querySelector("img").getAttribute("alt");
+        const releaseYear =
+          element.getAttribute("data-film-release-year") || "";
+        const director = element.getAttribute("data-film-director") || "";
+        const imageUrl = element.querySelector("img").getAttribute("src");
 
         return {
           id,
@@ -44,8 +42,12 @@ async function scrapeLetterboxdWatchlist(username) {
   await scrapePage();
 
   // Écrivez les données dans data.js
-  const dataFileContent = `const filmData = ${JSON.stringify(filmData, null, 2)};\n\nexport default filmData;\n`;
-  fs.writeFileSync('data.js', dataFileContent);
+  const dataFileContent = `const filmData = ${JSON.stringify(
+    filmData,
+    null,
+    2
+  )};\n\nexport default filmData;\n`;
+  fs.writeFileSync("data.js", dataFileContent);
 
   console.log(`Scraped ${filmData.length} films from the watchlist.`);
   console.log(filmData);

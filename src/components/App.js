@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import '../style.css';
 import Header from './Header';
 import Button from './Button';
 import Card from './Card';
+import Login from './Login';
 import filmData from '../watchlist/data';
 import { getRandomIndex } from '../functions/utils';
 
@@ -28,6 +29,7 @@ export default function App() {
     return (
         <div className='app'>
             <Header />
+            <Login />
             <Button onToggleOverlay={handleClick} />
             {isCardVisible && (
                 <div className="overlay">
