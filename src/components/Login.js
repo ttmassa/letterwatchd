@@ -5,6 +5,7 @@ export default function Login() {
         <div className="login--container">
             <h2 className='login--title'>Letterboxd username?</h2>
             <input className='login--input-username' required autoFocus></input>
+            <button className='login--button' type='submit'>Submit</button>
         </div>
     )
 }

@@ -9,11 +9,16 @@ import { getRandomIndex } from '../functions/utils';
 
 export default function App() {
     const [isCardVisible, setCardVisible] = useState(false);
+    const [isLoginVisible, setLoginVisible] = useState(true);
     const [randomIndex, setRandomIndex] = useState(null);
 
     const toggleOverlay = () => {
         setCardVisible(!isCardVisible);
     };
+
+    const toggleLogin = () => {
+        setLoginVisible(!isLoginVisible);
+    }
 
     const handleClick = () => {
         const newIndex = getRandomIndex(filmData.length);

@@ -150,3 +150,16 @@ header {
 .login--input-username {
     width: 300px;
 }
+
+.login--button {
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #00e054;
+    border: #14181c;
+    border-radius: 10px;
+}
+
+.login--button:hover {
+    background: #038c38;
+}
