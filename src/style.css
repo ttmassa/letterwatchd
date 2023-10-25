@@ -151,7 +151,7 @@ header {
     width: 300px;
 }
 
-.login--button {
+.submit-form--button {
     width: 150px;
     height: 40px;
     font-size: 20px;
@@ -160,6 +160,7 @@ header {
     border-radius: 10px;
 }
 
-.login--button:hover {
+.submit-form--button:hover {
     background: #038c38;
 }
+
