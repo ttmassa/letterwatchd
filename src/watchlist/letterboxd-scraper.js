@@ -1,8 +1,8 @@
-import puppeteer from "puppeteer";
-import fs from "fs";
+const puppeteer = require("puppeteer");
+const fs = require("fs");
 
 
-export default async function scrapeLetterboxdWatchlist(username) {
+async function scrapeLetterboxdWatchlist(username) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const watchlistUrl = `https://letterboxd.com/${username}/watchlist/`;
@@ -21,16 +21,11 @@ export default async function scrapeLetterboxdWatchlist(username) {
       const filmInfo = await filmContainer.evaluate((element) => {
         const id = 1;
         const title = element.querySelector("img").getAttribute("alt");
-        const releaseYear =
-          element.getAttribute("data-film-release-year") || "";
-        const director = element.getAttribute("data-film-director") || "";
         const imageUrl = element.querySelector("img").getAttribute("src");
 
         return {
           id,
           title,
-          director,
-          releaseDate: releaseYear,
           coverImage: imageUrl,
         };
       });
@@ -57,5 +52,5 @@ export default async function scrapeLetterboxdWatchlist(username) {
 }
 
 // Specify the username for the watchlist you want to scrape
-export const username = "balakazx";
+const username = "balakazx";
 scrapeLetterboxdWatchlist(username);
