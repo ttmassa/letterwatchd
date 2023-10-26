@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+const inputValue = ''; 
 export default function Login({ onUsernameSubmit }) {
   const [inputValue, setInputValue] = useState('');
 
@@ -25,3 +27,5 @@ export default function Login({ onUsernameSubmit }) {
     </div>
   );
 }
+
+export { inputValue };

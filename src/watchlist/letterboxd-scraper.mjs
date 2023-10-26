@@ -1,7 +1,8 @@
-const puppeteer = require("puppeteer");
-const fs = require("fs");
+import puppeteer from "puppeteer";
+import fs from "fs";
 
-async function scrapeLetterboxdWatchlist(username) {
+
+export default async function scrapeLetterboxdWatchlist(username) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const watchlistUrl = `https://letterboxd.com/${username}/watchlist/`;
@@ -56,5 +57,5 @@ async function scrapeLetterboxdWatchlist(username) {
 }
 
 // Specify the username for the watchlist you want to scrape
-const username = "balakazx";
+export const username = "balakazx";
 scrapeLetterboxdWatchlist(username);

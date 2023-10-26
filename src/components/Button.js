@@ -14,6 +14,7 @@ export default function Button({ onToggleOverlay }) {
 
     return (
         <div className='button'>
+            <h3 className='button--welcome'>Welcome !</h3>
             <button 
             className={buttonClass} 
             onMouseEnter={toToggle} 

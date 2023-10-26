@@ -42,7 +42,7 @@ export default function App() {
       <Header />
       {isLoginVisible && (
         <div>
-          <Login onUsernameSubmit={handleUsernameSubmit} />
+            <Login onUsernameSubmit={handleUsernameSubmit} />
         </div>
       )}
       <Button onToggleOverlay={handleClick} />
