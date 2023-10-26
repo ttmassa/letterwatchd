@@ -11,8 +11,7 @@ export default function App() {
   const [isCardVisible, setCardVisible] = useState(false);
   const [isLoginVisible, setLoginVisible] = useState(true);
   const [randomIndex, setRandomIndex] = useState(null);
-  const [username, setUsername] = useState(""); 
-
+  
   const toggleOverlay = () => {
     setCardVisible(!isCardVisible);
   };
@@ -21,8 +20,7 @@ export default function App() {
     setLoginVisible(!isLoginVisible);
   };
 
-  const handleUsernameSubmit = (newUsername) => {
-    setUsername(newUsername);
+  const handleUsernameSubmit = () => {
     toggleLogin();
   };
 
